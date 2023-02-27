@@ -6,9 +6,9 @@ public class Contacts {
 
     public static void main(String[] args) {
         String userInput;
-        do {
             ContactsMethods.getContacts();
-            System.out.println("\nContacts Menu Actions\n Add | Remove | Search | Quit");
+        do {
+            System.out.println("\nContacts Menu Actions\nAdd | Remove | Search | Display |  Quit");
             System.out.println("Enter Menu Action: ");
             userInput = sc.nextLine();
 
@@ -18,6 +18,8 @@ public class Contacts {
                 ContactsMethods.removeContacts();
             } else if (userInput.matches("(?i)Search")) {
                 ContactsMethods.searchContacts();
+            } else if (userInput.matches("(?i)Display")){
+                ContactsMethods.getContacts();
             } else if (userInput.matches("(?i)Quit")){
                 System.out.println("Goodbye");
             } else {
