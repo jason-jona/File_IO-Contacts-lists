@@ -9,7 +9,7 @@ public class ContactsMethods {
     public static Path contactsPath = Paths.get("data", "Contacts.txt");
     public static Scanner sc = new Scanner(System.in);
 
-    public static void getContacts(){
+    public static void getContacts() {
         // displays Contacts
         List<String> contactsList = null;
         try {
@@ -19,19 +19,24 @@ public class ContactsMethods {
         }
         System.out.println("Name | Phone number \n---------------");
 
-        for(int i = 0; i < contactsList.size(); i += 1) {
+        for (int i = 0; i < contactsList.size(); i += 1) {
             System.out.println((contactsList.get(i)));
         }
     }
 
-    public static void addContact(){
+    public static void addContact() {
         //adds contact from user input
-        System.out.println("Enter new contact info: ");
-        String input = sc.nextLine();
+        System.out.println("Enter new contact name: ");
+        String nameInput = sc.nextLine();
+        contactsCheck(nameInput);
+        System.out.println("Enter new contact number");
+        String numInput = sc.nextLine();
+        String numberInput = numInput.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
+        String newEntry = nameInput + " | " + numberInput;
         try {
             Files.write(
                     contactsPath,
-                    Arrays.asList(input),
+                    Arrays.asList(newEntry),
                     StandardOpenOption.APPEND
             );
         } catch (IOException e) {
@@ -51,7 +56,7 @@ public class ContactsMethods {
         }
     }
 
-    public static void removeContacts(){
+    public static void removeContacts() {
 //        //displays contacts
         List<String> contactsList = null;
         try {
@@ -71,7 +76,7 @@ public class ContactsMethods {
         }
         try {
             Files.write(
-                    contactsPath,contactsList);
+                    contactsPath, contactsList);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -97,18 +102,19 @@ public class ContactsMethods {
         ArrayList<String> arrlist = new ArrayList<>();
         String searchInput = sc.nextLine();
 
-        for(int i = 0; i < contactsList.size(); i += 1) {
-            if(contactsList.get(i).contains(searchInput)) {
+        for (int i = 0; i < contactsList.size(); i += 1) {
+            if (contactsList.get(i).contains(searchInput)) {
                 arrlist.add(contactsList.get(i));
             }
         }
-                if(arrlist.size() > 0){
-                    System.out.println(arrlist);
-                }else if(arrlist.size() == 0) {
-                    System.out.println("No entries found.");
-                }
+        if (arrlist.size() > 0) {
+            System.out.println(arrlist);
+        } else if (arrlist.size() == 0) {
+            System.out.println("No entries found.");
         }
-    public static void contactsCheck(){
+    }
+
+    public static void contactsCheck(String input) {
         //displays contacts
         ArrayList<Iterator> checkList = new ArrayList<>();
         List<String> contactsList = null;
@@ -117,10 +123,27 @@ public class ContactsMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        //remove contact
+        for (int i = 0; i < contactsList.size(); i += 1) {
+            if ((contactsList.get(i)).contains(input)) {
+                System.out.println("Entry name " + contactsList.get(i) + " already exists. Overwrite? Y/N");
+            }
+        }
+        String response = sc.nextLine();
+        Iterator<String> listIterator = contactsList.iterator();
+        if (response.matches("(?i)Y|Yes|1")) {
+            removeContacts();
 
-    }
-
-    public static void main(String[] args) {
-
+//            try {
+//                Files.write(
+//                        contactsPath,
+//                        Arrays.asList(input),
+//                        StandardOpenOption.APPEND
+//                );
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+        }
     }
 }
+
