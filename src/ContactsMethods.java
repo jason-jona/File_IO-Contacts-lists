@@ -63,8 +63,7 @@ public class ContactsMethods {
         }
         //remove contact
         System.out.println("Remove entries that match user input: ");
-        Scanner sb = new Scanner(System.in);
-        String removeInput = sb.nextLine();
+        String removeInput = sc.nextLine();
         Iterator<String> listIterator = contactsList.iterator();
         while (listIterator.hasNext()) {
             String item = listIterator.next();
@@ -99,8 +98,7 @@ public class ContactsMethods {
         //search contacts
         System.out.println("Search contacts by name: ");
         ArrayList<String> arrlist = new ArrayList<>();
-        Scanner sa = new Scanner(System.in);
-        String searchInput = sa.nextLine();
+        String searchInput = sc.nextLine();
 
         for(int i = 0; i < contactsList.size(); i += 1) {
             if(contactsList.get(i).contains(searchInput)) {
@@ -114,9 +112,8 @@ public class ContactsMethods {
                 }
         }
     public static void contactsCheck(){
-        //        //displays contacts
+        //displays contacts
         ArrayList<Iterator> checkList = new ArrayList<>();
-        Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
