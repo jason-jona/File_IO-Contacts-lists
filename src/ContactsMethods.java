@@ -72,6 +72,12 @@ public class ContactsMethods {
                 listIterator.remove();
             }
         }
+        try {
+            Files.write(
+                    Paths.get("data", "Contacts.txt"),contactsList);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         //print list again
         System.out.println("Name | Phone number \n---------------");
