@@ -6,6 +6,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class ContactsMethods {
+    public static Path contactsPath = Paths.get("data", "Contacts.txt");
     public static Scanner sc = new Scanner(System.in);
 
     public static void getContacts(){
@@ -30,7 +31,7 @@ public class ContactsMethods {
         String input = sc.nextLine();
         try {
             Files.write(
-                    Paths.get("data", "Contacts.txt"),
+                    contactsPath,
                     Arrays.asList(input),
                     StandardOpenOption.APPEND
             );
@@ -38,7 +39,6 @@ public class ContactsMethods {
             throw new RuntimeException(e);
         }
         // displays Contacts
-        Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
@@ -87,7 +87,7 @@ public class ContactsMethods {
         }
     }
 
-    public static void searchContacts(){
+    public static void searchContacts() {
         //displays contacts
         Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
@@ -102,14 +102,17 @@ public class ContactsMethods {
         Scanner sa = new Scanner(System.in);
         String searchInput = sa.nextLine();
 
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            if(contactsList.get(i).contains(searchInput)){
+        for(int i = 0; i < contactsList.size(); i += 1) {
+            if(contactsList.get(i).contains(searchInput)) {
                 arrlist.add(contactsList.get(i));
             }
         }
-        System.out.println(arrlist);
-    }
-
+                if(arrlist.size() > 0){
+                    System.out.println(arrlist);
+                }else if(arrlist.size() == 0) {
+                    System.out.println("No entries found.");
+                }
+        }
     public static void contactsCheck(){
         //        //displays contacts
         ArrayList<Iterator> checkList = new ArrayList<>();
