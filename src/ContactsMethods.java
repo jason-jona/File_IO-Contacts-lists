@@ -29,7 +29,7 @@ public class ContactsMethods {
         System.out.println("Enter new contact name: ");
         String nameInput = sc.nextLine();
         contactsCheck(nameInput);
-        System.out.println("Enter new contact number");
+        System.out.println("Enter new contact number: ");
         String numInput = sc.nextLine();
         String numberInput = numInput.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
         String newEntry = nameInput + " | " + numberInput;
@@ -133,17 +133,6 @@ public class ContactsMethods {
         Iterator<String> listIterator = contactsList.iterator();
         if (response.matches("(?i)Y|Yes|1")) {
             removeContacts();
-
-//            try {
-//                Files.write(
-//                        contactsPath,
-//                        Arrays.asList(input),
-//                        StandardOpenOption.APPEND
-//                );
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
         }
     }
 }
-
