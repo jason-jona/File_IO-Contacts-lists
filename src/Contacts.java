@@ -1,16 +1,11 @@
-import java.util.Scanner;
-
-
 public class Contacts {
-    public static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         String userInput;
             ContactsMethods.getContacts();
         do {
             System.out.println("\nContacts Menu Actions\nAdd | Remove | Search | Display |  Quit");
             System.out.println("Enter Menu Action: ");
-            userInput = sc.nextLine();
+            userInput = ContactsMethods.sc.nextLine();
 
             if (userInput.matches("(?i)Add")) {
                 ContactsMethods.addContact();
