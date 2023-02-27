@@ -11,7 +11,6 @@ public class ContactsMethods {
 
     public static void getContacts(){
         // displays Contacts
-        Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
@@ -54,7 +53,6 @@ public class ContactsMethods {
 
     public static void removeContacts(){
 //        //displays contacts
-        Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
@@ -73,7 +71,7 @@ public class ContactsMethods {
         }
         try {
             Files.write(
-                    Paths.get("data", "Contacts.txt"),contactsList);
+                    contactsPath,contactsList);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -88,7 +86,6 @@ public class ContactsMethods {
 
     public static void searchContacts() {
         //displays contacts
-        Path contactsPath = Paths.get("data", "Contacts.txt");
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
