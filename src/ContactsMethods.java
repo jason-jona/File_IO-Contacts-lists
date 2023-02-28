@@ -5,10 +5,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
+//***************************** PATH *****************************
 public class ContactsMethods {
     public static Path contactsPath = Paths.get("data", "Contacts.txt");
     public static Scanner sc = new Scanner(System.in);
 
+    //***************************** GETTER *****************************
     public static void getContacts() {
         // displays Contacts
         List<String> contactsList = null;
@@ -24,6 +26,8 @@ public class ContactsMethods {
         }
     }
 
+    //***************************** METHODS ****************************
+    // Add Contact
     public static void addContact() {
         //adds contact from user input
         System.out.println("Enter new contact name: ");
@@ -42,7 +46,7 @@ public class ContactsMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        // displays Contacts
+        // Display Contacts
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
@@ -57,14 +61,14 @@ public class ContactsMethods {
     }
 
     public static void removeContacts() {
-//        //displays contacts
+//        // Display Contacts
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //remove contact
+        // Remove Contacts
         System.out.println("Remove entries that match user input: ");
         String removeInput = sc.nextLine();
         Iterator<String> listIterator = contactsList.iterator();
@@ -74,6 +78,7 @@ public class ContactsMethods {
                 listIterator.remove();
             }
         }
+        // Write to Contacts
         try {
             Files.write(
                     contactsPath, contactsList);
@@ -81,7 +86,7 @@ public class ContactsMethods {
             throw new RuntimeException(e);
         }
 
-        //print list again
+        // Print List Again
         System.out.println("Name | Phone number \n---------------");
 
         for (String s : contactsList) {
@@ -90,14 +95,14 @@ public class ContactsMethods {
     }
 
     public static void searchContacts() {
-        //displays contacts
+        // Display Contacts
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //search contacts
+        // Search Contacts
         System.out.println("Search contacts by name: ");
         ArrayList<String> arrlist = new ArrayList<>();
         String searchInput = sc.nextLine();
@@ -115,7 +120,7 @@ public class ContactsMethods {
     }
 
     public static void contactsCheck(String input) {
-        //displays contacts
+        // Display Contacts
         ArrayList<Iterator> checkList = new ArrayList<>();
         List<String> contactsList = null;
         try {
@@ -123,7 +128,7 @@ public class ContactsMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        //remove contact
+        // Remove Contacts
         for (String s : contactsList) {
             if (s.contains(input)) {
                 System.out.println("Entry name " + s + " already exists. Overwrite? Y/N");
@@ -133,16 +138,6 @@ public class ContactsMethods {
         Iterator<String> listIterator = contactsList.iterator();
         if (response.matches("(?i)Y|Yes|1")) {
             removeContacts();
-
-//            try {
-//                Files.write(
-//                        contactsPath,
-//                        Arrays.asList(input),
-//                        StandardOpenOption.APPEND
-//                );
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
         }
     }
 }
