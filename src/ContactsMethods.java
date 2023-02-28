@@ -61,14 +61,14 @@ public class ContactsMethods {
     }
 
     public static void removeContacts() {
-//        // Display Contacts
+        // Display Contacts
         List<String> contactsList = null;
         try {
             contactsList = Files.readAllLines(contactsPath);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        // Remove Contacts
+         //  Remove Contacts
         System.out.println("Remove entries that match user input: ");
         String removeInput = sc.nextLine();
         Iterator<String> listIterator = contactsList.iterator();

@@ -6,8 +6,6 @@ Jim John | 223-245-6555
 George Costanza | 333-534-222
 Hot Dog Slim | 553-232-4812
 Oben TimValdez | 333-242-6543
-Jim Jimothy | 332-222-5144
-Jimothy Wimothy | 551-345-2353
 Jimply Clim | 232-125-6453
 Sherry Slaps | 253-267-4636
 Jerry Gams | 432-241-6774
@@ -20,3 +18,4 @@ Hanry Lu Blume | 543-322-5959
 Honk Hail | 352-634-7899
 Gabby Polito | 342-322-4563
 Gil Hadrano | 333-235-6676
+Jim Jimothy | 323-775-2453
