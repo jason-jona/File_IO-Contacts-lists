@@ -19,8 +19,8 @@ public class ContactsMethods {
         }
         System.out.println("Name | Phone number \n---------------");
 
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            System.out.println((contactsList.get(i)));
+        for (String s : contactsList) {
+            System.out.println(s);
         }
     }
 
@@ -51,8 +51,8 @@ public class ContactsMethods {
         }
         System.out.println("Name | Phone number \n---------------");
 
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            System.out.println((contactsList.get(i)));
+        for (String s : contactsList) {
+            System.out.println(s);
         }
     }
 
@@ -84,8 +84,8 @@ public class ContactsMethods {
         //print list again
         System.out.println("Name | Phone number \n---------------");
 
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            System.out.println((contactsList.get(i)));
+        for (String s : contactsList) {
+            System.out.println(s);
         }
     }
 
@@ -102,9 +102,9 @@ public class ContactsMethods {
         ArrayList<String> arrlist = new ArrayList<>();
         String searchInput = sc.nextLine();
 
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            if (contactsList.get(i).contains(searchInput)) {
-                arrlist.add(contactsList.get(i));
+        for (String s : contactsList) {
+            if (s.contains(searchInput)) {
+                arrlist.add(s);
             }
         }
         if (arrlist.size() > 0) {
@@ -124,9 +124,9 @@ public class ContactsMethods {
             throw new RuntimeException(e);
         }
         //remove contact
-        for (int i = 0; i < contactsList.size(); i += 1) {
-            if ((contactsList.get(i)).contains(input)) {
-                System.out.println("Entry name " + contactsList.get(i) + " already exists. Overwrite? Y/N");
+        for (String s : contactsList) {
+            if (s.contains(input)) {
+                System.out.println("Entry name " + s + " already exists. Overwrite? Y/N");
             }
         }
         String response = sc.nextLine();
