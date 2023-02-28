@@ -15,7 +15,7 @@ public class Contacts {
                 ContactsMethods.searchContacts();
             } else if (userInput.matches("(?i)4|Display")) {
                 ContactsMethods.getContacts();
-            } else if (userInput.matches("(?i)5|Quit")) {
+            } else if (userInput.matches("(?i)5|Quit")){
                 System.out.println("Goodbye");
             } else {
                 System.out.println("Could not find method, please check spelling.");
