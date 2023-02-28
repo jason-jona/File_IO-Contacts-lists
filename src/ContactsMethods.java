@@ -19,7 +19,7 @@ public class ContactsMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Name | Phone number \n---------------");
+        System.out.println("|-------------Contacts-------------|\n|---------Name | Phone number -----|\n|----------------------------------|");
 
         for (String s : contactsList) {
             System.out.println(s);
@@ -53,7 +53,7 @@ public class ContactsMethods {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Name | Phone number \n---------------");
+        System.out.println("|-------------Contacts-------------|\n|---------Name | Phone number -----|\n|----------------------------------|");
 
         for (String s : contactsList) {
             System.out.println(s);
@@ -87,7 +87,7 @@ public class ContactsMethods {
         }
 
         // Print List Again
-        System.out.println("Name | Phone number \n---------------");
+        System.out.println("|-------------Contacts-------------|\n|---------Name | Phone number -----|\n|----------------------------------|");
 
         for (String s : contactsList) {
             System.out.println(s);

@@ -3,8 +3,8 @@ public class Contacts {
         String userInput;
         ContactsMethods.getContacts();
         do {
-            System.out.println("\nContacts Menu Actions\n1. Add\n2. Remove\n3. Search\n4. Display \n5. Quit");
-            System.out.println("Enter Menu Action: ");
+            System.out.println("|----------------------------------------------------------|\n|------------------Contacts Menu Actions-------------------|\n|----------- 1. Add 🔨 2. Remove 🚽 3. Search 🔮 ----------|\n|----------------- 4. Display 📱 5. Quit 🏃‍ ---------------|");
+            System.out.println("|--------------------Enter Menu Action!--------------------|");
             userInput = ContactsMethods.sc.nextLine();
 
             if (userInput.matches("(?i)1|Add")) {
